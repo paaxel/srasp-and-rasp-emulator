@@ -7,7 +7,35 @@ This project covers all stages of a full compilation and execution pipeline: fro
 
 Built entirely in **Java 21** using **JavaFX** for the GUI, the project also leverages **ANTLR4** for parser generation. The development and build environment is configured for **Maven**, **IntelliJ IDEA**, and **Temurin 21 JDK**, with instructions included for building Windows installer packages (.msi) using **WiX Toolset** and **jpackage**.
 
-## Components
+## RASP Machine Architecture
+
+The **RASP (Random Access Stored Program)** machine is a primitive machine based on the Von Neumann model. This machine is capable of receiving, transmitting, storing, and processing information. 
+
+To provide these functionalities, the machine is equipped with:
+- **Input and Output Tapes**
+- **Random Access Memory**
+- **Central Processing Unit (CPU)**
+
+
+![RASP Machine Architecture](images/rasp-architecture.png)  
+*RASP Machine Architecture (L. Nigro, Lezioni di programmazione orientata agli oggetti in Java con elementi di strutture di dati e architettura dei calcolatori, Pitagora Editrice Bologna, 2014.)*
+
+
+The operational diagram is shown in above image. The machine receives data from an input tape, processes it through the CPU, and then outputs it to an output tape. The input and output tapes are considered potentially infinite and are organized as a sequence of cells, each capable of storing a single integer value. These tapes are the only way the machine can communicate with the outside world, and access to these tapes can only occur sequentially.
+
+Random Access Memory (RAM), on the other hand, can be accessed in a random order by using the position of a specific cell. Writing to memory is destructive, and the access time for any memory cell is constant.
+
+The **Central Processing Unit (CPU)** governs the operation of the machine and consists of:
+- **Arithmetic Logic Unit (ALU)**: Capable of performing arithmetic operations such as addition, subtraction, division, and multiplication.
+- **Current Instruction Register (CIR)**: Holds the current instruction being executed.
+- **Instruction Pointer (IP)**: Points to the next instruction, also known as the program counter.
+- **Accumulator (ACC)**: The only register the ALU works with, which holds numerical values.
+
+For more information on the RASP machine, you can refer to the following sources:
+- [Wikipedia - Macchina RASP](https://it.wikipedia.org/wiki/Macchina_RASP)
+- L. Nigro, *Lezioni di programmazione orientata agli oggetti in Java con elementi di strutture di dati e architettura dei calcolatori*, Pitagora Editrice Bologna, 2014.
+
+## Software Components
 ### 1. RASP Emulator
 
 - Emulates a Von Neumann-style RASP machine.
