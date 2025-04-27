@@ -1,4 +1,4 @@
-# SimplerRASP Project
+# RASP Emulator and SimplerRASP Language Project
 
 ## Introduction
 
