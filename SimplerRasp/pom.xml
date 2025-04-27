@@ -1,0 +1,89 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>it.palex.rasp</groupId>
+		<artifactId>rasp</artifactId>
+		<version>${revision}</version>
+	</parent>
+
+	<artifactId>SimplerRasp</artifactId>
+
+	<properties>
+		<antlr4.visitor>true</antlr4.visitor>
+		<antlr4.listener>false</antlr4.listener>
+	</properties>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>org.antlr</groupId>
+			<artifactId>antlr4-runtime</artifactId>
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>it.palex.rasp</groupId>
+			<artifactId>RaspEmulator</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		
+	</dependencies>
+
+
+
+	<build>
+		<plugins>
+
+			<plugin>
+				<groupId>org.antlr</groupId>
+				<artifactId>antlr4-maven-plugin</artifactId>
+				<configuration>
+					<sourceDirectory>src/main/antlr4</sourceDirectory>
+					<outputDirectory>src/main/generated-sources</outputDirectory>
+					
+					<arguments>
+				      <argument>-package</argument>
+				      <argument>it.palex.srasp.lang</argument>
+				   </arguments>
+				</configuration>
+				<executions>
+					<execution>
+						<id>antlr-generate</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>antlr4</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>it.palex.srasp.StarterMain</mainClass>
+						</manifest>
+					</archive>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id> <!-- this is used for inheritance merges -->
+						<phase>package</phase> <!-- bind to the packaging phase -->
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+</project>

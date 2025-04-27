@@ -1,0 +1,28 @@
+.keyword {
+    -fx-fill: purple;
+    -fx-font-weight: bold;
+}
+
+.semicolon {
+    -fx-font-weight: bold;
+}
+
+.paren {
+    -fx-fill: firebrick;
+    -fx-font-weight: bold;
+}
+
+.bracket {
+    -fx-fill: darkgreen;
+    -fx-font-weight: bold;
+}
+
+.comment {
+	-fx-fill: cadetblue;
+}
+
+
+.styled-text-area .text{
+	-fx-font-family: consolas; 
+	-fx-font-size: 12pt;
+}

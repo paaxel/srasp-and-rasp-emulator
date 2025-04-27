@@ -1,0 +1,64 @@
+def fattorialeRicorsivo(number n): number{
+    if(n<=0){
+            return 1;
+    }
+
+    number park = n * fattorialeRicorsivo(n-1);
+
+    return park;
+}
+
+def fattorialeIterativo(number num): number{
+	number fatt = 1;
+	number i;
+	if(num != 0){
+		i = num;
+		while(i>0){
+			fatt = fatt * i;
+			i = i - 1;
+		}		
+	}
+ 	return fatt;
+}
+
+
+def fattorialeTailRicorsivo(number n, number acc): number{
+    if(n<=0){
+            return acc;
+    }
+    return fattorialeTailRicorsivo(n-1, acc * n);
+}
+
+def fibonacciRicorsivo(number n): number{
+    if ( n==1 || n==2 ){
+        return 1;
+    }
+    return fibonacciRicorsivo(n-1)+fibonacciRicorsivo(n-2);
+}
+
+
+def fibonacciIterativo(number n): number {
+    number a = 0; 
+    number fib = 1;
+    number i = 0;
+    
+    while(i<n-1) {
+         number temp = fib;
+   	 fib = fib + a;
+   	 a = temp;
+	 i = i+1;
+    }
+    return fib;
+}
+
+main{
+    number fattToCalc = 10;
+    cout <- fattorialeRicorsivo(fattToCalc);
+    cout <- fattorialeIterativo(fattToCalc);
+    cout <- fattorialeTailRicorsivo(fattToCalc, 1);
+    
+    number fibonacciToCalc = 20;
+
+    cout <- fibonacciRicorsivo(fibonacciToCalc);
+    cout <- fibonacciIterativo(fibonacciToCalc);
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+  	 <ThresholdFilter level="ERROR"/>
+
+	 <Appenders>
+	   <Console name="STDOUT" target="SYSTEM_OUT">
+	     <PatternLayout pattern="%m%n"/>
+	   </Console>
+	 </Appenders>
+	 <Loggers>
+	   <Root level="all">
+	     <AppenderRef ref="STDOUT"/>
+	   </Root>
+	 </Loggers>
+</Configuration>

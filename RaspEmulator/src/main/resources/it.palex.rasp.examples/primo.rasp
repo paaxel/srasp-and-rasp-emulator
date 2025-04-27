@@ -1,0 +1,58 @@
+CICLO:
+        READ X
+        LOAD X
+        STORE POS
+        LOAD POS
+        JLEZ MENOUNO
+        SUB# 3
+        JLEZ UNO
+        ADD# 3
+        DIV# 2
+        MUL# 2
+        SUB POS
+        JZ ZERO
+        JUMP DISPARI
+
+MENOUNO:
+        WRITE# -1
+        HALT
+
+UNO:
+        WRITE# 1
+        HALT
+
+ZERO:
+        WRITE# 0
+        HALT
+
+DISPARI:
+        LOAD# 3
+        STORE D
+        LOAD POS
+        DIV# 2
+        STORE META
+        JUMP FOR
+
+FOR:
+        LOAD D
+        SUB META
+        JLEZ VALUTAIF
+        WRITE# 1
+        HALT
+
+VALUTAIF:
+
+        LOAD POS
+        DIV D
+        MUL D
+        SUB POS
+        JZ SCRIVI
+        LOAD D
+        ADD# 2
+        STORE D
+        JUMP FOR
+
+SCRIVI:
+        WRITE# 0
+        HALT
+

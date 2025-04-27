@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:id="primaryPane"
+		fx:controller="it.palex.raspgui.RaspGuiController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" onAction="#closeProgram">
+          		<graphic>
+	                  <ImageView fitHeight="18.0" fitWidth="18.0">
+	                     <image>
+	                        <Image url="@icons/close.png" />
+	                     </image>
+	                  </ImageView>
+		         </graphic>
+              </MenuItem>
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Run">
+            <items>
+              <MenuItem fx:id="compileMenuItem" mnemonicParsing="false" text="Compile" onAction="#compileProgram">
+              	<graphic>
+	                  <ImageView fitHeight="18.0" fitWidth="18.0">
+	                     <image>
+	                        <Image url="@icons/build.png" />
+	                     </image>
+	                  </ImageView>
+		         </graphic>
+              </MenuItem>
+              
+              <MenuItem fx:id="runMenuItem" mnemonicParsing="false" text="Run" onAction="#runProgram">
+              	<graphic>
+	                  <ImageView fitHeight="18.0" fitWidth="18.0">
+	                     <image>
+	                        <Image url="@icons/run.png" />
+	                     </image>
+	                  </ImageView>
+		         </graphic>
+              </MenuItem>
+              
+              <MenuItem fx:id="terminateMenuItem" mnemonicParsing="false" text="Terminate" onAction="#terminateProgram">
+              	<graphic>
+	                  <ImageView fitHeight="18.0" fitWidth="18.0">
+	                     <image>
+	                        <Image url="@icons/terminate.png" />
+	                     </image>
+	                  </ImageView>
+		         </graphic>
+              </MenuItem>
+              
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Guide" onAction="#openGuide">
+              	<graphic>
+	                  <ImageView fitHeight="18.0" fitWidth="18.0">
+	                     <image>
+	                        <Image url="@icons/icon.png" />
+	                     </image>
+	                  </ImageView>
+		         </graphic>
+              </MenuItem>
+              
+              <MenuItem mnemonicParsing="false" text="About" onAction="#openAbout">
+              	<graphic>
+	                  <ImageView fitHeight="18.0" fitWidth="18.0">
+	                     <image>
+	                        <Image url="@icons/info.png" />
+	                     </image>
+	                  </ImageView>
+		         </graphic>
+              </MenuItem>
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <SplitPane dividerPositions="0.70" orientation="VERTICAL" BorderPane.alignment="CENTER">
+        <items>
+          <AnchorPane>
+               <children>
+                  <SplitPane dividerPositions="0.75" prefHeight="222.0" prefWidth="786.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <TitledPane animated="false" fx:id="sourceProgramTextAreaContainer" collapsible="false" prefHeight="200.0" prefWidth="389.0" text="SimplerRasp" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 
+                              </TitledPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <TitledPane animated="false" fx:id="compiledProgramTextAreaContainer" collapsible="false" prefHeight="200.0" prefWidth="387.0" text="Compiled" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 
+                              </TitledPane>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+          <AnchorPane>
+               <children>
+                  <TabPane fx:id="consoleOutTabPane" prefHeight="219.0" prefWidth="786.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <tabs>
+                      <Tab text="Console" fx:id="consoleTab">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextArea fx:id="consoleTextArea" prefHeight="155.0" prefWidth="669.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <contextMenu>
+									        <ContextMenu>
+									            <items>
+									                <MenuItem text="Clear" onAction="#clearConsoleLogs"/>
+									            </items>
+									        </ContextMenu>
+									    </contextMenu>
+                                    </TextArea>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                      <Tab text="Errors" fx:id="errorsTab">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextArea editable="false" fx:id="errorTextArea" prefHeight="155.0" prefWidth="669.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    	<contextMenu>
+									        <ContextMenu>
+									            <items>
+									                <MenuItem text="Clear" onAction="#clearErrorLogs"/>
+									            </items>
+									        </ContextMenu>
+									    </contextMenu>
+                                    </TextArea>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                    </tabs>
+                  </TabPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </center>
+</BorderPane>
