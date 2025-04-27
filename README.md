@@ -52,27 +52,27 @@ For more information on the RASP machine, you can refer to the following sources
 #### 2.1 SimplerRASP Language
 - A custom imperative programming language compiled to RASP Assembly.
 - Features:
- - Integer & boolean variables
- - Arithmetic & logical operations
- - if / else, while, functions
- - I/O: cin -> var; and cout <- expr;
+   - Integer & boolean variables
+   - Arithmetic & logical operations
+   - if / else, while, functions
+   - I/O: cin -> var; and cout <- expr;
 - Uses a formal EBNF grammar and is compiled using ANTLR4.
 
 #### 2.1 SimplerRASP Compiler
 - Translates SimplerRASP into RASP Assembly to be executed in the emulated RASP machine.
 - Based on ANTLR's Visitor pattern.
 - Handles:
- - Type checking
- - Scope management (stack-based memory model)
- - Recursive function calls
+   - Type checking
+   - Scope management (stack-based memory model)
+   - Recursive function calls
 
 ### 3. SimplerRASP IDE
 - Built with JavaFX.
 - Features:
- - Text editor for SimplerRASP code
- - One-click Compile and Run buttons
- - Built-in I/O console.
- - Requires java 21 and javafx sdk.
+   - Text editor for SimplerRASP code
+   - One-click Compile and Run buttons
+   - Built-in I/O console.
+   - Requires java 21 and javafx sdk.
 
 ## Development Environment
 Requirements
